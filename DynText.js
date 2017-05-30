@@ -20,16 +20,17 @@ class DynText extends HTMLElement {
 
     //Grab the elements from the shadow root
     this.$dynTextEl = shadowRoot.querySelector('.dyn-text');
-    }
 
-  connectedCallback() {
 
     this.$dynTexts = [];
     this.$dynCurrentIndex = 0;
-
     this.$delay = 1000;
-    this.updateDelay(this.getAttribute('data-delay'));
     this.$delimeter = '/';
+    this.$order = "natural";
+  }
+
+  connectedCallback() {
+    this.updateDelay(this.getAttribute('data-delay'));
     this.updateDelimeter(this.getAttribute('data-delimeter'));
 
     // init text properly
@@ -40,7 +41,6 @@ class DynText extends HTMLElement {
     }
 
     //order
-    this.$order = "natural";
     this.updateOrder(this.getAttribute('data-order'));
 
     //Call the draw function initially
@@ -78,7 +78,7 @@ class DynText extends HTMLElement {
             this.updateDynText(newVal);
             break;
         case "data-delay":
-            this.updateDynText(newVal);
+            this.updateDelay(newVal);
             break;
       }
   };
@@ -104,6 +104,7 @@ class DynText extends HTMLElement {
     }
   };
 
+  //TODO split delimeters found aka support 'last'
   updateDelimeter(delimeter, last) {
     if (!!delimeter) {
       this.$delimeter = delimeter;

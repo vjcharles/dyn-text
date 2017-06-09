@@ -1,5 +1,7 @@
+<script>
+    (function() {
 /**
- * CLASS DOCUMENTATION GOES HERE
+ * DynText (Dynamic Text) is a web component which replaces a list of text with individual items in that list in various orders, and speeds. 
  *
  * @extends HTMLElement
  */
@@ -21,7 +23,6 @@ class DynText extends HTMLElement {
     //Grab the elements from the shadow root
     this.$dynTextEl = shadowRoot.querySelector('.dyn-text');
 
-
     this.$dynTexts = [];
     this.$dynCurrentIndex = 0;
     this.$delay = 1000;
@@ -37,6 +38,7 @@ class DynText extends HTMLElement {
     if (this.textContent.length <= 0) {
         this.updateDynText(this.getAttribute('data-texts'));
     } else {
+        //CHROME doesn't have textContent available now...
         this.updateDynText(this.texts2JSON(this.textContent));                 
     }
 
@@ -151,6 +153,15 @@ class DynText extends HTMLElement {
     };
   }
 
+  texts2JSON(innerHTMLTexts) {
+    var texts = innerHTMLTexts.split(this.$delimeter);
+
+    //hack to keep this in the same format as updateDynText
+    return JSON.stringify(texts);
+  }
 }
 
 customElements.define('dyn-text', DynText);
+    }());
+</script>
+

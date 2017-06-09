@@ -7,12 +7,38 @@
   <title>dyn-text</title>
 
   <script src="webcomponents-lite.js"></script>
-  <script src="DynText.js"></script>
-  
+  <link rel="import" href="dyn-text.comp.html">
+  <script src="scratchpad.js"></script>
 </head>
 
 <body>
-  <dyn-text></dyn-text>
+    <dyn-scratch>HEY</dyn-scratch>
+
+
+    <dyn-text data-delay="2000" data-order="reverse">A/B/C</dyn-text>
+    <br/>    
+    <dyn-text data-delay="3000" data-texts='["Text1", "Text2", "Text3"]' data-order="reverse" data-delimeter=","></dyn-text>
+
+    <dyn-text></dyn-text>
+    <br/>
+    <dyn-text id="magical" data-delay="2000" data-order="magical">Derp/Ity/Doo</dyn-text>
+    <br/>    
+
+    <br/>
+    <dyn-text>a/b/c</dyn-text>
+
+    <br/>
+    <dyn-text id="goodday" data-delay="3000">hi</dyn-text>
+
+    <br/> 
+    <dyn-text></dyn-text>
+<!--
+-->
 </body>
+
+<script>
+  let dts = document.getElementsByTagName('dyn-text');
+
+</script>
 
 </html>

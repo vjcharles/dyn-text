@@ -1,15 +1,11 @@
 {
   "name": "dyn-text",
-  "version": "1.0.1",
   "description": "A web component that splits a slash separated list and displays them one at a time, creating an inline slideshow of words or phrases.",
   "main": "dyn-text.comp.html",
-  "scripts": {
-    "test": "DynText.tests.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "github.com/vjcharles/dyn-text"
-  },
+  "authors": [
+    "vjcharles"
+  ],
+  "license": "MIT",
   "keywords": [
     "dyn-text",
     "dynamic",
@@ -17,7 +13,12 @@
     "slideshow",
     "carousel"
   ],
-  "author": "vjcharles",
-  "license": "MIT",
-  "homepage": "https://github.com/vjcharles/dyn-text"
+  "homepage": "https://github.com/vjcharles/dyn-text",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }

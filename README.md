@@ -1,4 +1,4 @@
-# <dyn-text> Dynamic Text Web Component
+# dyn-text: Dynamic Text Web Component
 
 A web component that, in its simplest form, splits a slash separated list and displays them one at a time, creating a sort of inline slideshow.
 
@@ -10,20 +10,19 @@ No external libraries required other than whatever it currently takes for Web Co
 
 ### Manually
 
-from [github.com/vjcharles/dyn-text](github.com/vjcharles/dyn-text)
+from [github.com/vjcharles/dyn-text](https://github.com/vjcharles/dyn-text)
 
 Include the dyn-text.comp.html file where you put your dependencies, and reference it in your main page for instance:
 
-   components/dyn-text.comp.html
+    components/dyn-text.comp.html
 
 within index.html
 
-   <script src="libraries/webcomponents-lite.js"></script>
-   <link rel="import" href="components/dyn-text.comp.html">
+    <script src="libraries/webcomponents-lite.js"></script>
+    <link rel="import" href="components/dyn-text.comp.html">
 
 ### NPM
 
-TODO
 
 Available on [npm](https://www.npmjs.com/) as [dyn-text](https://www.npmjs.com/package/dyn-text)
 
@@ -32,14 +31,11 @@ Available on [npm](https://www.npmjs.com/) as [dyn-text](https://www.npmjs.com/p
 
 ### Bower
 
-TODO 
 Available on [bower](https://bower.io/) as [dyn-text](https://github.com/vjcharles/dyn-text)
 
     bower install dyn-text
 
 ## Usage
-
-TODO: Write better usage instructions
 
     <script src="webcomponents-lite.js"></script>
     <link rel="import" href="bower_components/dyn-text.comp.html">
@@ -61,7 +57,7 @@ TODO: Write better usage instructions
 
 Here is an element with all the configurations (except data-texts) in the single tag as an example usage of each.
 
-    <dyn-text data-delay="2000" data-order="reverse" data-delimiter='[",","or"]'>Apples, Bananas and Strawberries</dyn-text>
+    <dyn-text data-delay="2000" data-order="reverse" data-delimiter='[",","or"]'>Apples, Bananas or Strawberries</dyn-text>
 
 
 ## History
@@ -77,9 +73,3 @@ Sources mentioned inline
 MIT
 
 Copyright 2017 VJCharles
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

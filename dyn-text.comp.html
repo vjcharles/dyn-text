@@ -26,19 +26,18 @@ class DynText extends HTMLElement {
     this.$dynTexts = [];
     this.$dynCurrentIndex = 0;
     this.$delay = 1000;
-    this.$delimeter = '/';
+    this.$delimiter = '/';
     this.$order = "natural";
   }
 
   connectedCallback() {
     this.updateDelay(this.getAttribute('data-delay'));
-    this.updateDelimeter(this.getAttribute('data-delimeter'));
+    this.updateDelimiter(this.getAttribute('data-delimiter'));
 
     // init text properly
     if (this.textContent.length <= 0) {
         this.updateDynText(this.getAttribute('data-texts'));
     } else {
-        //CHROME doesn't have textContent available now...
         this.updateDynText(this.texts2JSON(this.textContent));                 
     }
 
@@ -65,7 +64,7 @@ class DynText extends HTMLElement {
 
   //updates
   static get observedAttributes() {
-    return ['data-delay', 'data-texts', 'data-order', 'data-delimeter'];
+    return ['data-delay', 'data-texts', 'data-order', 'data-delimiter'];
   }
 
   attributeChangedCallback(attrName, oldVal, newVal) {
@@ -73,8 +72,9 @@ class DynText extends HTMLElement {
         case "data-order":
             this.updateOrder(newVal);
             break;
-        case "data-delimeter":
-            this.updateDelimeter(newVal);
+        case "data-delimiter":
+            this.updateDelimiter(newVal);
+            this.updateDynText(this.$);
             break;
         case "data-texts":
             this.updateDynText(newVal);
@@ -106,11 +106,29 @@ class DynText extends HTMLElement {
     }
   };
 
-  //TODO split delimeters found aka support 'last'
-  updateDelimeter(delimeter, last) {
-    if (!!delimeter) {
-      this.$delimeter = delimeter;
-    }
+  /* 
+   * Utilities
+   */
+   parseJSONArray(aString){
+     try {
+         return [JSON.parse(aString), undefined]
+     } catch (error) {
+         console.log(error)
+         return undefined;
+     }
+   }
+
+  //TODO split delimiters found aka support 'last'
+  // how to handle? try to parse it as a JS array. if not then keep it a string and move on with 1 delimiter
+  updateDelimiter(delimiter) {
+    if (!!delimiter) {
+      var delList = this.parseJSONArray(delimiter);
+      if (delList) {
+        this.$delimiter = delList;
+      } else {
+        this.$delimiter = delimiter;
+      }
+    } //else leave it alone
   }
 
   updateOrder(orderName, list) {
@@ -154,14 +172,21 @@ class DynText extends HTMLElement {
   }
 
   texts2JSON(innerHTMLTexts) {
-    var texts = innerHTMLTexts.split(this.$delimeter);
+    var texts = innerHTMLTexts.split(this.$delimiter);
 
+    if (typeof this.$delimiter != "string") {
+      //split on last
+      let last = texts.pop()
+      let lasts = last.split(this.$delimiter[this.$delimiter.length - 1])
+      texts.concat(lasts)
+    }
     //hack to keep this in the same format as updateDynText
     return JSON.stringify(texts);
   }
 }
 
 customElements.define('dyn-text', DynText);
-    }());
-</script>
 
+    }());
+
+</script>

@@ -8,22 +8,26 @@
 
   <script src="webcomponents-lite.js"></script>
   <link rel="import" href="dyn-text.comp.html">
-  <script src="scratchpad.js"></script>
-</head>
-
+  <!--
+  <link rel="import" href="dyn-text.sort.magical.comp.html">
+    <script src="scratchpad.js"></script>
+  -->
+</head> 
 <body>
-    <dyn-scratch>HEY</dyn-scratch>
+    <dyn-text data-texts='["Text1", "Text2", "Text3"]' data-delimiter=","></dyn-text>
+    <br/>    
+    <dyn-text data-delimiter='[",", "or"]'>this, that or the other</dyn-text>
 
+    <br/> 
+
+    <!--
+    <dyn-text id="magical" data-delay="2000" data-order="magical">Derp/Ity/Doo</dyn-text>
 
     <dyn-text data-delay="2000" data-order="reverse">A/B/C</dyn-text>
     <br/>    
-    <dyn-text data-delay="3000" data-texts='["Text1", "Text2", "Text3"]' data-order="reverse" data-delimeter=","></dyn-text>
 
     <dyn-text></dyn-text>
     <br/>
-    <dyn-text id="magical" data-delay="2000" data-order="magical">Derp/Ity/Doo</dyn-text>
-    <br/>    
-
     <br/>
     <dyn-text>a/b/c</dyn-text>
 
@@ -32,13 +36,13 @@
 
     <br/> 
     <dyn-text></dyn-text>
+    -->
+
 <!--
 -->
 </body>
 
 <script>
-  let dts = document.getElementsByTagName('dyn-text');
-
 </script>
 
 </html>

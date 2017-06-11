@@ -14,13 +14,21 @@
   -->
 </head> 
 <body>
-    <dyn-text data-texts='["Text1", "Text2", "Text3"]' data-delimiter=","></dyn-text>
-    <br/>    
     <dyn-text data-delimiter='[",", "or"]'>this, that or the other</dyn-text>
+    <br/>
+
+    <dyn-text data-delimiter='[",", "or"]'>this, that, or the other</dyn-text>
+    <br/>
+
+    <dyn-text data-delimiter='[",", "and"]'>this, that, and the other</dyn-text>
+    
+    <br/>
 
     <br/> 
 
     <!--
+    <dyn-text data-texts='["Text1", "Text2", "Text3"]' data-delimiter=","></dyn-text>
+    <br/>    
     <dyn-text id="magical" data-delay="2000" data-order="magical">Derp/Ity/Doo</dyn-text>
 
     <dyn-text data-delay="2000" data-order="reverse">A/B/C</dyn-text>

@@ -39,7 +39,7 @@ Available on [bower](https://bower.io/) as [dyn-text](https://github.com/vjcharl
 
 ## Usage
 
-TODO: Write usage instructions
+TODO: Write better usage instructions
 
     <script src="webcomponents-lite.js"></script>
     <link rel="import" href="bower_components/dyn-text.comp.html">
@@ -55,13 +55,13 @@ TODO: Write usage instructions
 * data-order: Built in order functions include natural, random without replacement, reverse. Defaults to natural order / order unchanged.
 * data-texts: list in json form. Checks here first if no data text element is prent will parse from innerText of dyn-text element.
 * data-delimiter: How to parse innerText. Defaults to a slash separator.
-  TODO: other delimiters have a different character for last, like 'this, this or this' or is the last delimiter. 
+  Other delimiters have a different character for last, like 'this, this or this' or is the last delimiter. data-delimiter handles a single string or a two element array. (Text can be with or without an Oxford Comma.)
+  Note: Data delimiter only affects initial textContent at initial element load time. Updating data-delimiter won't re-parse data in the the dyn-text element's textContent attribute, as the currently rendered text could have been updated by the data-texts attribute making the original text obsolete.
 
 
-TODO: data-split feature doesn't exist yet on multiple items.
-Here is a massive element with all the configurations (except data-texts) in the single tag as an example usage of each.
+Here is an element with all the configurations (except data-texts) in the single tag as an example usage of each.
 
-    <dyn-text data-delay="2000" data-order="reverse" data-split='[",","or", ", or"]'>Apples, Bananas and Strawberries</dyn-text>
+    <dyn-text data-delay="2000" data-order="reverse" data-delimiter='[",","or"]'>Apples, Bananas and Strawberries</dyn-text>
 
 
 ## History

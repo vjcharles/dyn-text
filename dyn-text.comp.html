@@ -31,18 +31,18 @@ class DynText extends HTMLElement {
   }
 
   connectedCallback() {
-    this.updateDelay(this.getAttribute('data-delay'));
-    this.updateDelimiter(this.getAttribute('data-delimiter'));
+    this.updateDelay(this.dataset.delay);
+    this.updateDelimiter(this.dataset.delimiter);
 
     // init text properly
     if (this.textContent.length <= 0) {
-        this.updateDynText(this.getAttribute('data-texts'));
+        this.updateDynText(this.dataset.texts);
     } else {
         this.updateDynText(this.texts2JSON(this.textContent));                 
     }
 
     //order
-    this.updateOrder(this.getAttribute('data-order'));
+    this.updateOrder(this.dataset.order);
 
     //Call the draw function initially
     this.draw();
@@ -74,7 +74,6 @@ class DynText extends HTMLElement {
             break;
         case "data-delimiter":
             this.updateDelimiter(newVal);
-            this.updateDynText(this.$);
             break;
         case "data-texts":
             this.updateDynText(newVal);
@@ -111,9 +110,9 @@ class DynText extends HTMLElement {
    */
    parseJSONArray(aString){
      try {
-         return [JSON.parse(aString), undefined]
+         return JSON.parse(aString)
      } catch (error) {
-         console.log(error)
+         //console.log(error);
          return undefined;
      }
    }
@@ -172,13 +171,16 @@ class DynText extends HTMLElement {
   }
 
   texts2JSON(innerHTMLTexts) {
-    var texts = innerHTMLTexts.split(this.$delimiter);
-
-    if (typeof this.$delimiter != "string") {
+    var texts = innerHTMLTexts;
+    if (typeof this.$delimiter == "string") {
+      texts = innerHTMLTexts.split(this.$delimiter);
+    } else {
+      texts = innerHTMLTexts.split(this.$delimiter[0]);
       //split on last
-      let last = texts.pop()
+      let last = texts.pop();
       let lasts = last.split(this.$delimiter[this.$delimiter.length - 1])
-      texts.concat(lasts)
+      texts = texts.concat(lasts);
+      texts = texts.filter(function(entry) { return /\S/.test(entry); });
     }
     //hack to keep this in the same format as updateDynText
     return JSON.stringify(texts);

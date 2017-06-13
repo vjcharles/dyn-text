@@ -1,6 +1,6 @@
 {
   "name": "dyn-text",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A web component that splits a slash separated list and displays them one at a time, creating an inline slideshow of words or phrases.",
   "main": "dyn-text.comp.html",
   "scripts": {

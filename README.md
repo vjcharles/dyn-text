@@ -37,6 +37,7 @@ Available on [bower](https://bower.io/) as [dyn-text](https://github.com/vjcharl
 
 ## Usage
 
+
     <script src="webcomponents-lite.js"></script>
     <link rel="import" href="bower_components/dyn-text.comp.html">
   
@@ -54,10 +55,24 @@ Available on [bower](https://bower.io/) as [dyn-text](https://github.com/vjcharl
   Other delimiters have a different character for last, like 'this, this or this' or is the last delimiter. data-delimiter handles a single string or a two element array. (Text can be with or without an Oxford Comma.)
   Note: Data delimiter only affects initial textContent at initial element load time. Updating data-delimiter won't re-parse data in the the dyn-text element's textContent attribute, as the currently rendered text could have been updated by the data-texts attribute making the original text obsolete.
 
+Below is are dyn-text elements with configurations.
 
-Here is an element with all the configurations (except data-texts) in the single tag as an example usage of each.
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.1/webcomponents-lite.js"></script>
+    <link rel="import" href="bower_components/dyn-text/dyn-text.comp.html">
+    <next-code-block></next-code-block>    
 
-    <dyn-text data-delay="2000" data-order="reverse" data-delimiter='[",","or"]'>Apples, Bananas or Strawberries</dyn-text>
+```
+-->
+
+```html
+    I love <dyn-text data-delay="3000" data-order="reverse" data-delimiter='[",","or"]'>apples, bananas or strawberries</dyn-text>.
+    <br/>
+    <dyn-text data-delay="1500" data-order="random">Hello/Hi/Howdy</dyn-text>
+```
 
 
 ## History
